@@ -1,6 +1,6 @@
 {
-  "_from": "react-native-google-places-autocomplete",
-  "_id": "react-native-google-places-autocomplete@1.3.6",
+  "_from": "react-native-google-places-autocomplete-custom-textinput",
+  "_id": "react-native-google-places-autocomplete-custom-textinput@1.0.0",
   "_inBundle": false,
   "_integrity": "sha512-uhaaUen6fflkr1svlrrKVhn+K0d0rgo10FKQhMPB6wS/5h4jKWHAWGGEBWmzjGMHru681YCcwR3hJJEeML0Oig==",
   "_location": "/react-native-google-places-autocomplete",
@@ -9,8 +9,8 @@
     "type": "tag",
     "registry": true,
     "raw": "react-native-google-places-autocomplete",
-    "name": "react-native-google-places-autocomplete",
-    "escapedName": "react-native-google-places-autocomplete",
+    "name": "react-native-google-places-autocomplete-custom-textinput",
+    "escapedName": "react-native-google-places-autocomplete-custom-textinput",
     "rawSpec": "",
     "saveSpec": null,
     "fetchSpec": "latest"
@@ -24,10 +24,10 @@
   "_spec": "react-native-google-places-autocomplete",
   "_where": "/Users/macbookpro/Desktop/ReactNative/TankMonitoring/dev",
   "author": {
-    "name": "Farid from Safi"
+    "name": "hungrySoul"
   },
   "bugs": {
-    "url": "https://github.com/FaridSafi/react-native-google-places-autocomplete/issues"
+    "url": "https://github.com/777uday/react-native-google-places-autocomplete"
   },
   "bundleDependencies": false,
   "dependencies": {
@@ -42,15 +42,9 @@
     "eslint-config-airbnb": "^1.0.0",
     "eslint-plugin-react": "^3.9.0"
   },
-  "homepage": "https://github.com/FaridSafi/react-native-google-places-autocomplete#readme",
+  "homepage": "https://github.com/777uday/react-native-google-places-autocomplete",
   "keywords": [
-    "autocomplete",
-    "google",
-    "places",
-    "react-component",
-    "react-native",
-    "ios",
-    "android"
+    "autocomplete"
   ],
   "license": "MIT",
   "main": "GooglePlacesAutocomplete.js",
@@ -60,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FaridSafi/react-native-google-places-autocomplete.git"
+    "url": "git+https://github.com/777uday/react-native-google-places-autocomplete.git"
   },
   "scripts": {
     "test": "./node_modules/eslint/bin/eslint.js GooglePlacesAutocomplete.js"
