@@ -48,7 +48,7 @@
   ],
   "license": "MIT",
   "main": "GooglePlacesAutocomplete.js",
-  "name": "react-native-google-places-autocomplete",
+  "name": "react-native-google-places-autocomplete-custom-textinput",
   "peerDependencies": {
     "react-native": ">= 0.46"
   },
