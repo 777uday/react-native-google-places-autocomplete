@@ -17,6 +17,7 @@ import {
 } from 'react-native';
 import Qs from 'qs';
 import debounce from 'lodash.debounce';
+import Toast from 'react-native-simple-toast';
 
 const WINDOW = Dimensions.get('window');
 
@@ -507,7 +508,8 @@ export default class GooglePlacesAutocomplete extends Component {
 
     if (onChangeText) {
       onChangeText(text);
-    }
+    } 
+    this.props.returnedText(text);
   }
 
   _getRowLoader() {
@@ -721,6 +723,7 @@ GooglePlacesAutocomplete.propTypes = {
   underlineColorAndroid: PropTypes.string,
   returnKeyType: PropTypes.string,
   onPress: PropTypes.func,
+  returnedText: PropTypes.func,
   onNotFound: PropTypes.func,
   onFail: PropTypes.func,
   minLength: PropTypes.number,
@@ -761,6 +764,7 @@ GooglePlacesAutocomplete.defaultProps = {
   underlineColorAndroid: 'transparent',
   returnKeyType: 'default',
   onPress: () => {},
+  returnedText: () => {},
   onNotFound: () => {},
   onFail: () => {},
   minLength: 0,
