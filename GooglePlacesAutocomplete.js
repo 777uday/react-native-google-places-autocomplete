@@ -13,7 +13,8 @@ import {
   Platform,
   ActivityIndicator,
   PixelRatio,
-  AsyncStorage
+  AsyncStorage,
+  TouchableOpacity
 } from 'react-native';
 import Qs from 'qs';
 import debounce from 'lodash.debounce';
@@ -86,6 +87,7 @@ export default class GooglePlacesAutocomplete extends Component {
     dataSource: this.buildRowsFromResults([]),
     listViewDisplayed: this.props.listViewDisplayed === 'auto' ? false : this.props.listViewDisplayed,
     textInputLocation : true,
+    cleanAddressButton: false
     };
   }
 
@@ -677,19 +679,18 @@ export default class GooglePlacesAutocomplete extends Component {
     return null;
   }
 
-  async address123(){
-    var address = await AsyncStorage.getItem('filterAddress');
-    return address;
+  _clearAddress() {
+    this.setState({
+        text: '',
+        cleanAddressButton:true
+    });
+    this.props.cleanAddressButton(true);
 }
   render() {
     let {
       onFocus,
       ...userProps
     } = this.props.textInputProps;
-    var address = this.address123();
-    console.log("hellohello:"+JSON.stringify(address));
-    console.log("hellohellohello:"+this.state.address);
-    console.log("hellohellohellohello:"+this.state.text ? this.state.text : this.state.defaultAddress);
     return (
       <View
         style={[defaultStyles.container, this.props.styles.container]}
@@ -708,11 +709,13 @@ export default class GooglePlacesAutocomplete extends Component {
 
               placeholderTextColor={this.props.placeholderTextColor}
               onFocus={onFocus ? () => {this._onFocus(); onFocus()} : this._onFocus}
-              clearButtonMode="while-editing"
               underlineColorAndroid={this.props.underlineColorAndroid}
               { ...userProps }
               onChangeText={this._handleChangeText}
             />
+            <TouchableOpacity onPress={() => this._clearAddress()}>
+              <Image source={require('../../logos/clear_button.png')} resizeMode={global.propscontain} style={{ flex: 2, height: 10, width: 10, paddingRight:Platform.OS === 'ios'? 14 : 14, marginRight:Platform.OS === 'ios'? 10 : 10 }} />
+            </TouchableOpacity>
           </View>
         }
         { true &&  <View style={{ flex:1 }}>
@@ -732,6 +735,7 @@ GooglePlacesAutocomplete.propTypes = {
   returnKeyType: PropTypes.string,
   onPress: PropTypes.func,
   returnedText: PropTypes.func,
+  cleanAddressButton: PropTypes.func,
   onNotFound: PropTypes.func,
   onFail: PropTypes.func,
   minLength: PropTypes.number,
@@ -773,6 +777,7 @@ GooglePlacesAutocomplete.defaultProps = {
   returnKeyType: 'default',
   onPress: () => {},
   returnedText: () => {},
+  cleanAddressButton: () => {},
   onNotFound: () => {},
   onFail: () => {},
   minLength: 0,
