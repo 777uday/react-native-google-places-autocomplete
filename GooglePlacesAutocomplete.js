@@ -117,10 +117,18 @@ export default class GooglePlacesAutocomplete extends Component {
 
   async componentWillMount() {
     var address_component_asyncStorage = await AsyncStorage.getItem(ASVfilterAddress); 
-    this.setState({text:address_component_asyncStorage, listViewDisplayed:false});
-    this._request = this.props.debounce
-      ? debounce(this._request, this.props.debounce)
-      : this._request;
+    var currentLocation = await AsyncStorage.getItem('currentLocation'); 
+    if(address_component_asyncStorage){
+      this.setState({text:address_component_asyncStorage, listViewDisplayed:false});
+      this._request = this.props.debounce
+        ? debounce(this._request, this.props.debounce)
+        : this._request;
+    } else {
+      this.setState({text:currentLocation, listViewDisplayed:false});
+      this._request = this.props.debounce
+        ? debounce(this._request, this.props.debounce)
+        : this._request;
+    }
   }
 
   componentDidMount() {
