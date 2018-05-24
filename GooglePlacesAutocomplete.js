@@ -483,6 +483,7 @@ export default class GooglePlacesAutocomplete extends Component {
             console.warn('google places autocomplete: ' + responseJSON.error_message);
           }
         } else {
+        // console.log("no log");
           // console.warn("google places autocomplete: request could not be completed or has been aborted");
         }
       };
